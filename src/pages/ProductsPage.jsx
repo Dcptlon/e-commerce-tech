@@ -1,8 +1,12 @@
-import React from 'react'
+import { productsCard } from '../data/productsCard'
+import ProductContainer from '../components/product-container/ProductContainer'
 
 function ProductsPage() {
+  
   return (
-    <div>ProductsPage</div>
+    <div>
+      <ProductContainer productsCard={productsCard} />  
+    </div>
   )
 }
 
