@@ -1,0 +1,17 @@
+.displayHorizontal {
+    display: flex;
+    gap: 10px;
+    overflow: auto;
+}
+
+.displayVertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.displayGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
