@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router'
 
 function MainLayout() {
@@ -18,12 +17,11 @@ function MainLayout() {
                     />
 
                     <Link to="/cart" className="cart-link">
-                        🛒
                         <span className="cart-badge">0</span>
                     </Link>
 
                     <Link to="/login" className="login-link">
-                        👤 Iniciar Sesión
+                        Iniciar Sesión
                     </Link>
                 </div>
 
