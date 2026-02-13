@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router'
 import { useProducts } from '../hooks/useProducts'
 import { categories } from '../data/categories'
 import { productsCard } from '../data/productsCard'
-import FilterSidebar from '../components/filters/filter-sidebar/FilterSidebar'
+import FilterSidebar from '../components/Filters/filter-sidebar/FilterSidebar'
 import ProductSection from '../components/product-section/ProductSection'
 import styles from './ProductsPage.module.css'
 
