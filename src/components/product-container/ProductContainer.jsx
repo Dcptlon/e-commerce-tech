@@ -1,4 +1,3 @@
-import React from 'react'
 import ProductCard from '../product-card/ProductCard'
 import styles from './ProductContainer.module.css'
 function ProductContainer({productsCard, variant}) {
@@ -9,7 +8,7 @@ function ProductContainer({productsCard, variant}) {
       className = styles.displayVertical
       break;
     case 'G':
-      className = styles.displayGrid
+      className = styles.displayProducts
       break;
     default:
       className = styles.displayHorizontal
