@@ -1,0 +1,16 @@
+.productsPage {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.productsContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.searchInfo {
+  margin-bottom: 16px;
+  color: #555;
+  font-size: 15px;
+}
