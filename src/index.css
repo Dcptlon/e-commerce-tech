@@ -1,0 +1,15 @@
+:root {
+  --font-primary: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  
+}
+
+
