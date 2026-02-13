@@ -2,6 +2,7 @@ export const productDetail = [
     {
         id: 1,
         name: 'Laptop Gamer RGB Pro',
+        discount: 50,
         slug: 'laptop-gamer-rgb-pro',
         price: 1299000,
         category: 'laptops',
@@ -40,6 +41,7 @@ export const productDetail = [
     },
     {
         id: 2,
+        discount: null,
         name: 'Ultrabook Slim 14"',
         slug: 'ultrabook-slim-14',
         price: 1899000,
@@ -73,6 +75,7 @@ export const productDetail = [
     },
     {
         id: 3,
+        discount: 40,
         name: 'Mouse Gamer HyperX Pulse',
         slug: 'mouse-gamer-hyperx-pulse',
         price: 149000,
@@ -101,6 +104,7 @@ export const productDetail = [
     },
     {
         id: 4,
+        discount: null,
         name: 'Teclado Mecánico RGB Switch Blue',
         slug: 'teclado-mecanico-rgb-switch-blue',
         price: 399000,
@@ -128,6 +132,7 @@ export const productDetail = [
     },
     {
         id: 5,
+        discount: null,
         name: 'Auriculares Gamer Surround 7.1',
         slug: 'auriculares-gamer-surround-7-1',
         price: 299000,
@@ -155,6 +160,7 @@ export const productDetail = [
     },
     {
         id: 6,
+        discount: null,
         name: 'Memoria RAM DDR4 16GB 3200MHz',
         slug: 'memoria-ram-ddr4-16gb-3200mhz',
         price: 349000,
@@ -182,6 +188,7 @@ export const productDetail = [
     },
     {
         id: 7,
+        discount: null,
         name: 'Procesador Ryzen 5 5600X',
         slug: 'procesador-ryzen-5-5600x',
         price: 1599000,
@@ -210,6 +217,7 @@ export const productDetail = [
     },
     {
         id: 8,
+        discount: 10,
         name: 'Tarjeta Gráfica RTX 4060 8GB',
         slug: 'tarjeta-grafica-rtx-4060-8gb',
         price: 3299000,
@@ -236,6 +244,7 @@ export const productDetail = [
     },
     {
         id: 9,
+        discount: 15,
         name: 'SSD NVMe 1TB Gen4',
         slug: 'ssd-nvme-1tb-gen4',
         price: 599000,
@@ -262,6 +271,7 @@ export const productDetail = [
     },
     {
         id: 10,
+        discount: null,
         name: 'Monitor Gaming 27" 165Hz',
         slug: 'monitor-gaming-27-165hz',
         price: 2199000,
