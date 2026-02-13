@@ -1,0 +1,15 @@
+.carouselContainer {
+  width: 100%;           
+  max-width: 100%;       
+  height: auto;          
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;    
+}
+
+.carouselContainer img {
+  width: 100%;           
+  height: auto;
+  object-fit: cover;     
+  display: block;
+}
