@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styles from './imageCarousel.module.css'
+import styles from './ImageCarousel.module.css'
 
 function ImageCarousel({ images = [] }) {
   const [current, setCurrent] = useState(0)
