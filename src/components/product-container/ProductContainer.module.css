@@ -1,17 +1,37 @@
 .displayHorizontal {
-    display: flex;
-    gap: 10px;
-    overflow: auto;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+/* mobile: cambia a grid vertical con max 5 filas */
+@media (max-width: 480px) {
+  .displayHorizontal {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(250px * 5 + 10px * 4);
+  }
+}
+
+.displayProducts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .displayProducts {
+    grid-template-columns: 1fr;
+  }
 }
 
 .displayVertical {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-}
-.displayGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
