@@ -1,20 +1,30 @@
-import { productsCard } from '../data/productsCard'
 import ProductSection from '../components/product-section/ProductSection'
 import CTABanner from '../components/ctabanner/CtaBanner'
-
+import { useHome } from '../hooks/useHome.js'
 function Home() {
-  const featured = productsCard.filter( p => p.featured)
-  const bestSellers = productsCard.filter( p => p.bestSeller)
-  console.log(featured)
+  const { data, isLoading } = useHome()
+  console.log(data)
+  const sections = [
+    { title: "Productos destacados", data: data?.featured ?? [] },
+    { title: "Más vendidos", data: data?.bestSellers ?? [] },
+    { title: "Descuentos", data: data?.discounts ?? [] },
+  ]
+
+  if(isLoading){
+    return <h1>cargando productos</h1>
+  }
+
   return (
     <div>
-      <ProductSection title="Productos destacados" products={featured} linkTo='/products?featured=true' ></ProductSection>
-      <ProductSection title="Mas vendidos" products={bestSellers} linkTo='/products?bestsellers=true' ></ProductSection>
-      <ProductSection title="Mas vendidos" products={bestSellers} linkTo='/products?bestsellers=true' variant='G' ></ProductSection>
+      {sections.map(section => (
+        <ProductSection
+          key={section.title}
+          title={section.title}
+          products={section.data}
+        />
+      ))}
 
-      {/*aqui mas de esto basicamente, con tanta repeticion me pregunto si deberia pensar mejor esto */}
-
-      <CTABanner 
+      <CTABanner
         title="¿Eres un cliente nuevo?"
         description="Únete a nuestra comunidad y obtén descuentos exclusivos en tu primera compra"
         buttonText="Regístrate ahora"
