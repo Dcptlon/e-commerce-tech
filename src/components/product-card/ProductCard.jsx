@@ -1,34 +1,50 @@
+import styles from './ProductCard.module.css'
 import { Link } from 'react-router'
+
 function ProductCard({ product }) {
   const hasDiscount = product.discount > 0
-  const discountPrice = hasDiscount ? Math.round(product.price * (1 - product.discount / 100)) : product.price
+  const discountPrice = hasDiscount
+    ? Math.round(product.price * (1 - product.discount / 100))
+    : product.price
 
   return (
-    <article className='product-card'>
-      <Link to={`/product/${product.id}`}>
-        <h2 className='name'>{product.name}</h2>
+    <article className={styles.productCard}>
+      <Link to={`/product/${product.slug}`}>
+        <h2 className={styles.name}>{product.name}</h2>
       </Link>
 
       {hasDiscount &&
-        <span className='cont-discount'>
-          <span className='discount-badge'>-{product.discount}%</span>
-        </span>
+        <span className={styles.srOnly}>Descuento: {product.discount}%</span>
       }
 
-      <div className='cont-price'>
-        {hasDiscount ? <>
-          <span className='discount-price'>{discountPrice}</span>
-          <span className='old-price'>{product.price}</span>
-        </> : <span className='base-price'>{product.price}</span>
+      <div className={styles.contPrice}>
+        {hasDiscount ? (
+          <>
+            <span className={styles.discountPrice}>
+              Gs. {discountPrice.toLocaleString('es-PY')}
+            </span>
+            <span className={styles.oldPrice}>
+              Gs. {product.price.toLocaleString('es-PY')}
+            </span>
+          </>
+        ) : (
+          <span className={styles.basePrice}>
+            Gs. {product.price.toLocaleString('es-PY')}
+          </span>
+        )}
+      </div>
+
+      <div className={styles.contImg}>
+        <Link to={`/product/${product.slug}`}>
+          <img src={product.image} alt={product.name} />
+        </Link>
+        {hasDiscount &&
+          <span className={styles.discountBadge} aria-hidden="true">
+            -{product.discount}%
+          </span>
         }
       </div>
-      <div className='cont-img'>
-        <Link to={`/product/${product.id}`}>
-          <img src={product.image} alt="" />
-        </Link>
-      </div>
     </article>
-
   )
 }
 
