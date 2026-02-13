@@ -1,0 +1,108 @@
+.mainLayout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: #1e293b;
+}
+
+.topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.left img {
+    height: 40px;
+}
+
+.center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchBar:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cartLink,
+.loginLink {
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.cartLink:hover,
+.loginLink:hover {
+    color: #2563eb;
+}
+
+.cartBadge {
+    background: #2563eb;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+}
+
+.navBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 1.5rem;
+  padding: 0.8rem 1rem;
+  background: #0e74d9;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.navBar a:hover {
+    opacity: 0.8;
+}
+
+.navBar a.active {
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 2rem;
+}
+
+.mainFooter {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
