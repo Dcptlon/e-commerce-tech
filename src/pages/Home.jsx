@@ -1,5 +1,5 @@
 import ProductSection from '../components/product-section/ProductSection'
-import CTABanner from '../components/ctabanner/CtaBanner'
+import CTABanner from '../components/ctabanner/CTABanner'
 import { useHome } from '../hooks/useHome.js'
 function Home() {
   const { data, isLoading } = useHome()
