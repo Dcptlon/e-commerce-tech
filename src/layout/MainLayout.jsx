@@ -1,32 +1,58 @@
-import { Link, NavLink, Outlet } from 'react-router'
+import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router'
+import { useState, useEffect } from 'react'
+import styles from './MainLayout.module.css'
 
 function MainLayout() {
+    const navigate = useNavigate()
+    const [search, setSearch] = useState('')
+
+    const handleSearch = (e) => {
+        if (e.key === 'Enter' && search.trim()) {
+            navigate(`/products?search=${search.trim()}`)
+            setSearch('')
+        }
+    }
+
+    const { pathname } = useLocation()
+
+    // Scroll al top cada vez que cambia la ruta
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, [pathname])
+
     return (
-        <div className="main-layout">
+        <div className={styles.mainLayout}>
             <header>
-                {/* Top bar */}
-                <div className="top-bar">
-                    <Link to="/">
-                        <img src="/logo.png" alt="TechShop Logo" />
-                    </Link>
+                <div className={styles.topBar}>
+                    <div className={styles.left}>
+                        <Link to="/">
+                            <img src="/logo.png" alt="TechShop Logo" />
+                        </Link>
+                    </div>
 
-                    <input
-                        type="text"
-                        placeholder="Buscar productos..."
-                        disabled
-                    />
+                    <div className={styles.center}>
+                        <input
+                            type="text"
+                            placeholder="Buscar productos..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            onKeyDown={handleSearch}
+                            className={styles.searchBar}
+                        />
+                    </div>
 
-                    <Link to="/cart" className="cart-link">
-                        <span className="cart-badge">0</span>
-                    </Link>
+                    <div className={styles.right}>
+                        <Link to="/cart" className={styles.cartLink}>
+                            <span className={styles.cartBadge}>0</span>
+                        </Link>
 
-                    <Link to="/login" className="login-link">
-                        Iniciar Sesión
-                    </Link>
+                        <Link to="/login" className={styles.loginLink}>
+                            Iniciar Sesión
+                        </Link>
+                    </div>
                 </div>
 
-                {/* Navigation bar */}
-                <nav className="main-nav">
+                <nav className={styles.navBar}>
                     <NavLink to="/">Inicio</NavLink>
                     <NavLink to="/best-sellers">Lo Más Vendido</NavLink>
                     <NavLink to="/products?category=laptops">Laptops</NavLink>
@@ -37,11 +63,11 @@ function MainLayout() {
                 </nav>
             </header>
 
-            <main className="main-content">
+            <main className={styles.mainContent}>
                 <Outlet />
             </main>
 
-            <footer className="main-footer">
+            <footer className={styles.mainFooter}>
                 <p>&copy; 2026 TechShop - Todos los derechos reservados</p>
             </footer>
         </div>
