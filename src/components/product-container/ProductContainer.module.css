@@ -24,11 +24,6 @@
   gap: 20px;
 }
 
-@media (max-width: 480px) {
-  .displayProducts {
-    grid-template-columns: 1fr;
-  }
-}
 
 .displayVertical {
   display: grid;
