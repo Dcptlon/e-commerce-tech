@@ -11,7 +11,7 @@ function Home() {
   ]
 
   if(isLoading){
-    return <h1>cargando productos</h1>
+    return <p>cargando productos</p>
   }
 
   return (
