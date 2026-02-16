@@ -19,6 +19,18 @@
     height: 40px;
 }
 
+.logoLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    gap: 5px;
+}
+
+.logoLink h1 {
+    margin: 0;
+}
+
 .center {
     flex: 1;
     display: flex;
@@ -54,17 +66,22 @@
     transition: color 0.2s ease;
 }
 
+
 .cartLink:hover,
 .loginLink:hover {
     color: #2563eb;
 }
 
+
+.cartLink{
+    display: flex;
+    padding: 5px;
+    gap: 5px;
+}
+
 .cartBadge {
-    background: #2563eb;
-    color: white;
+    color: black;
     font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 999px;
 }
 
 .navBar {
