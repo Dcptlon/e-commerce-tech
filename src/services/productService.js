@@ -35,12 +35,21 @@ export async function getProducts(filters = {}) {
   if (filters.search) {
     const term = filters.search.toLowerCase()
     result = result.filter(p =>
-      p.name.toLowerCase().includes(term) || 
+      p.name.toLowerCase().includes(term) ||
       p.brand.toLowerCase().includes(term)
     )
   }
 
   return result
+}
+
+export async function getProductByIdSmall(id) {
+  await delay()
+
+  const product = productsCard.find(p => p.id === Number(id))
+  if (!product) throw new Error(`Product ${id} no encontrado`)
+
+  return product
 }
 
 export async function getProductById(id) {
@@ -50,6 +59,16 @@ export async function getProductById(id) {
 
   if (!product) throw new Error(`Producto ${id} no encontrado`)
 
+  return product
+}
+
+export async function getProductBySlug(slug) {
+  await delay()
+  
+  const product = productDetail.find(p => p.slug === slug)
+  console.log(product)
+  if (!product) throw new Error(`Producto ${slug} no encontrado`)
+  
   return product
 }
 
