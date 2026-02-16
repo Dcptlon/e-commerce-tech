@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams } from "react-router"
+import { useParams, Link } from "react-router"
 import { useProductBySlug, useProducts } from '../hooks/useProducts'
 import { useGetCart, useAddToCart, useRemoveFromCart } from '../hooks/useCart'
 import ImageCarousel from "../components/image-carousel/ImageCarousel"
@@ -111,33 +111,37 @@ function ProductDetailPage() {
           </p>
 
           <div className={styles.buttonGroup}>
-            <div className={styles.quantitySelector}>
-              <button
-                className={styles.quantityBtn}
-                onClick={() => handleQuantity(-1)}
-                disabled={quantity <= 1}
-              >-</button>
-              <span className={styles.quantityValue}>{quantity}</span>
-              <button
-                className={styles.quantityBtn}
-                onClick={() => handleQuantity(1)}
-                disabled={quantity >= product.stock}
-              >+</button>
-            </div>
+            {!isInCart && (
+                <div className={styles.quantitySelector}>
+                  <button
+                    className={styles.quantityBtn}
+                    onClick={() => handleQuantity(-1)}
+                    disabled={quantity <= 1}
+                  >-</button>
+                  <span className={styles.quantityValue}>{quantity}</span>
+                  <button
+                    className={styles.quantityBtn}
+                    onClick={() => handleQuantity(1)}
+                    disabled={quantity >= product.stock}
+                  >+</button>
+                </div>
+            )}
 
             <div className={styles.actionButtons}>
-              <button
-                className={isInCart ? styles.btnRemove : styles.btnAdd}
-                onClick={handleCartAction}
-                disabled={product.stock === 0}
-              >
-                {cartButtonText}
-              </button>
+              {!isInCart ? (
+                <button className={styles.btnAdd} onClick={handleCartAction} disabled={product.stock === 0}>
+                  {product.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
+                </button>
+              ) : (
+                <Link to="/cart" className={styles.btnGoToCart}>
+                  <img src="/cart.svg" alt="" />
+                  Ver en el carrito
+                </Link>
+              )}
 
-              <button className={styles.btnWishlist}>
-                Guardar
-              </button>
+              <button className={styles.btnWishlist}>Guardar</button>
             </div>
+
           </div>
         </div>
       </div>

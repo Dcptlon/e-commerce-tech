@@ -92,7 +92,6 @@
   color: #dc2626;
 }
 
-/* Quantity selector */
 .buttonGroup {
   display: flex;
   flex-direction: column;
@@ -169,7 +168,7 @@
   background: #1e40af;
 }
 
-.btnRemove {
+/*.btnRemove {
   flex: 1;
   padding: 0.75rem 1.5rem;
   background: #dc2626;
@@ -184,10 +183,33 @@
 .btnRemove:hover {
   background: #b91c1c;
 }
-
+*/
 .btnAdd:disabled {
   background: #94a3b8;
   cursor: not-allowed;
+}
+
+.btnGoToCart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btnGoToCart:hover {
+  background: #15803d;
+}
+
+.btnGoToCart img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1); /* convierte negro a blanco */
 }
 
 .btnWishlist {
