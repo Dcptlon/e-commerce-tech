@@ -1,8 +1,14 @@
 import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router'
 import { useState, useEffect } from 'react'
 import styles from './MainLayout.module.css'
+import { useGetCart } from '../hooks/useCart'
 
 function MainLayout() {
+    const {data: cart, isLoading } = useGetCart()
+
+    const totalCart = cart?.reduce((sum, p) => sum + p.quantity, 0) ?? 0
+    console.log(totalCart)
+    
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
 
@@ -25,8 +31,9 @@ function MainLayout() {
             <header>
                 <div className={styles.topBar}>
                     <div className={styles.left}>
-                        <Link to="/">
-                            <img src="/logo.png" alt="TechShop Logo" />
+                        <Link to="/" className={styles.logoLink}>
+                            <img src="/logo.svg" alt="TechShop Logo" />
+                            <h1>Tech Shop</h1>
                         </Link>
                     </div>
 
@@ -43,7 +50,8 @@ function MainLayout() {
 
                     <div className={styles.right}>
                         <Link to="/cart" className={styles.cartLink}>
-                            <span className={styles.cartBadge}>0</span>
+                            <img src="/cart.svg" alt="Carrito" />
+                            <span className={styles.cartBadge}>{totalCart}</span>
                         </Link>
 
                         <Link to="/login" className={styles.loginLink}>
